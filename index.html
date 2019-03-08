@@ -20,10 +20,72 @@
 
 <body>
 
-    
+  <div class="jumbotron jumbotron-fluid" style="background-color: black; color:white; text-align: center;">
+    <div class="container">
+      <h1 class="display-4">Employee Data Management</h1>
+      <p class="lead">A comprehensive Directory of Employee Billable Hours</p>
+    </div>
+  </div>
 
-     
+  <div class="container mx-auto">
+    <div class="row">
 
+      <div class="col-md-12">
+
+        <!-- Current Employees-->
+        <div class="card mb-4">
+          <div class="card-header">Current Employees</div>
+          <div class="card-body">
+            <table class="table table-sm table-hover" id='employee-table' >
+              <thead>
+                <tr>
+                  <th scope="col">Employee Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">Months Worked</th>
+                  <th scope="col">Monthly Rate ($)</th>
+                  <th scope="col">Total Billed ($)</th>
+                </tr>
+                <div id="tableData">
+
+                </div>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mx-auto">
+    <form>
+      <h3>Add Employee</h3>
+      <div class="form-group">
+        <label for="name">Employee Name</label>
+        <input type="text" class="form-control" id="name" placeholder="John Smith">
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <input type="text" class="form-control" id="role" placeholder="CEO">
+      </div>
+      <div class="form-group">
+        <label for="startDate">Start Date </label>
+        <input type="date" class="form-control" id="startDate" aria-describedby="emailHelp" placeholder="(MM/DD/YYY)">
+      </div>
+      <div class="form-group">
+        <label for="monthlyRate">Monthly Rate</label>
+        <input type="number" class="form-control" id="monthlyRate" placeholder="2,000">
+      </div>
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
     <!-- link to the jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -33,5 +95,6 @@
 
     <!-- link to my javascript -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
+    
 </body>
 </html>
