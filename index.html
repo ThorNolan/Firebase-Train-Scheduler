@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Julius+Sans+One|Monoton" rel="stylesheet">
 
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
@@ -21,10 +22,10 @@
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid" style="background-color: black; color:white; text-align: center;">
+  <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">Train Scheduler</h1>
-      <p class="lead">Dynamically Updated Arrival and Departure Times for Trains</p>
+      <h1 class="display-4 header">Train Scheduler</h1>
+      <p class="lead subHeader">Dynamically Updated Arrival and Departure Times<br>For Any Train* (*<i>You Can Imagine</i>)</p>
     </div>
   </div>
 
@@ -65,19 +66,19 @@
       <h3>Add New Train</h3>
       <div class="form-group">
         <label for="trainName">Train Name</label>
-        <input type="text" class="form-control" id="trainName" placeholder="">
+        <input type="text" class="form-control" id="trainName" placeholder="The Omelette Express">
       </div>
       <div class="form-group">
         <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="role" placeholder="CEO">
+        <input type="text" class="form-control" id="role" placeholder="San Francisco">
       </div>
       <div class="form-group">
         <label for="startDate">Time of First Train (military time) </label>
-        <input type="date" class="form-control" id="startDate" aria-describedby="emailHelp" placeholder="(MM/DD/YYY)">
+        <input type="time" class="form-control" id="startTime" aria-describedby="emailHelp" placeholder="(HH:mm)">
       </div>
       <div class="form-group">
-        <label for="monthlyRate">Frequency (minutes)</label>
-        <input type="number" class="form-control" id="monthlyRate" placeholder="2,000">
+        <label for="trainFrequency">Frequency (minutes)</label>
+        <input type="number" class="form-control" id="trainFrequency" placeholder="0">
       </div>
       <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -85,7 +86,8 @@
 
 
     <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
 
     <!-- link to the jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

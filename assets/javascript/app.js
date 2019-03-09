@@ -1,14 +1,13 @@
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyA5ELQxiWT7IVHMNIvVVqWQtlsD4D26uA0",
-    authDomain: "employeedate-f7716.firebaseapp.com",
-    databaseURL: "https://employeedate-f7716.firebaseio.com",
-    projectId: "employeedate-f7716",
-    storageBucket: "employeedate-f7716.appspot.com",
-    messagingSenderId: "464901647482"
+  var config = {
+    apiKey: "AIzaSyA37HgkMz1HEAgQObgB3Vps1XXwDLZDYVA",
+    authDomain: "train-scheduler-7a9e1.firebaseapp.com",
+    databaseURL: "https://train-scheduler-7a9e1.firebaseio.com",
+    projectId: "train-scheduler-7a9e1",
+    storageBucket: "",
+    messagingSenderId: "892889882380"
   };
   firebase.initializeApp(config);
-
 
   // Create a variable to reference the database.
   var database = firebase.database();

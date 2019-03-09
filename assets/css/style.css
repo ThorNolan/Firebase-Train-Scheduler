@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Google Fonts:
+font-family: 'Josefin Slab', serif;
+font-family: 'Monoton', cursive;
+font-family: 'Julius Sans One', sans-serif;
+*/
+
+body {
+    background-image: url(../images/dark-paths-background.png);
+}
+
+.jumbotron {
+    color: white;
+    background-color: rgba(255, 166, 19, 0.92);
+    font-family: 'Monoton', cursive;
+    font-size: 56px;
+    height: 30vh;
+}
+
+.subHeader {
+    font-family: 'Josefin Slab', serif;
+    font-size: 22px;
+    margin: auto;
+}
+
+.header {
+    margin: auto;
+}
