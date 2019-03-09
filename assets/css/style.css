@@ -18,14 +18,21 @@ body {
     font-family: 'Monoton', cursive;
     font-size: 56px;
     height: 30vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.display-4 {
+    padding: 30px;
 }
 
 .subHeader {
     font-family: 'Josefin Slab', serif;
     font-size: 22px;
-    margin: auto;
 }
 
-.header {
-    margin: auto;
+#mainFormArea {
+    /* background-color:rgba(0, 0, 0, 0.82); */
 }
+

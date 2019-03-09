@@ -22,22 +22,20 @@
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4 header">Train Scheduler</h1>
-      <p class="lead subHeader">Dynamically Updated Arrival and Departure Times<br>For Any Train* (*<i>You Can Imagine</i>)</p>
+  <div class="jumbotron jumbotron-fluid text-light">
+    <div class="container header justify-content-center">
+      <h1 class="display-4 justify-content-center">TRAIN &nbsp; &nbsp; SCHEDULE &nbsp; &nbsp; OPTIMIZER</h1>
+      <p class="lead subHeader  justify-content-center">Dynamically Updated Arrival and Departure Times<br>For Any Train*<br>(*<i>You Can Imagine</i>)</p>
     </div>
   </div>
 
+  <!-- Train departure and arrival times card -->
   <div class="container mx-auto">
     <div class="row">
-
       <div class="col-md-12">
-
-        <!-- Train departure and arrival times card -->
         <div class="card mb-4">
-          <div class="card-header">Current Trains</div>
-          <div class="card-body">
+          <div class="card-header border bg-dark text-light"><strong>Current Trains</strong></div>
+          <div class="card-body bg-dark">
             <table class="table table-sm table-hover" id='employee-table' >
               <thead>
                 <tr>
@@ -61,9 +59,9 @@
   </div>
 
   <!-- form for user input of train data -->
-  <div class="container mx-auto">
+  <div class="container mx-auto rounded border bg-dark text-light" id="mainFormArea">
     <form>
-      <h3>Add New Train</h3>
+      <h3><strong>Add New Train</strong></h3>
       <div class="form-group">
         <label for="trainName">Train Name</label>
         <input type="text" class="form-control" id="trainName" placeholder="The Omelette Express">
@@ -80,7 +78,7 @@
         <label for="trainFrequency">Frequency (minutes)</label>
         <input type="number" class="form-control" id="trainFrequency" placeholder="0">
       </div>
-      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" id="submit" class="btn btn-warning">Submit</button>
     </form>
   </div>
 
