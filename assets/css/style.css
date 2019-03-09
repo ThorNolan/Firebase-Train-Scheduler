@@ -37,5 +37,19 @@ body {
     width: 110%;
 }
 
+/* italicize all the placeholder text in my forms */
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;  
+ }
+ ::-moz-placeholder {
+    font-style: italic;  
+ }
+ :-ms-input-placeholder {  
+    font-style: italic; 
+ }
+
 
 
