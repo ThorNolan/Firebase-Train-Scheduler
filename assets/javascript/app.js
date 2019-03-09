@@ -1,10 +1,14 @@
-// Initialize Firebase
+$(document).ready(function() {
+
+// ==================== GLOBALS ===========================
+
+  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyA37HgkMz1HEAgQObgB3Vps1XXwDLZDYVA",
     authDomain: "train-scheduler-7a9e1.firebaseapp.com",
     databaseURL: "https://train-scheduler-7a9e1.firebaseio.com",
     projectId: "train-scheduler-7a9e1",
-    storageBucket: "",
+    storageBucket: "train-scheduler-7a9e1.appspot.com",
     messagingSenderId: "892889882380"
   };
   firebase.initializeApp(config);
@@ -12,49 +16,53 @@
   // Create a variable to reference the database.
   var database = firebase.database();
 
-  // Initial Values
-  var name = "";
-  var role = "";
-  var startDate = "";
-  var monthlyRate = 0;
+// ======================= FUNCTIONS ====================
 
-  // Capture Button Click
+  // On-click listener for my #submit button to add a new train
   $("#submit").on("click", function(event) {
     event.preventDefault();
 
-    // Grabbed values from text boxes
-    name = $("#name").val().trim();
-    role = $("#role").val().trim();
-    startDate = $("#startDate").val().trim();
-    monthlyRate = $("#monthlyRate").val().trim();
+    // Grabbed data points from my add train form
+    trainName = $("#trainName").val().trim();
+    destination = $("#destination").val().trim();
+    firstTrain = $("#firstTrain").val().trim();
+    trainFrequency = $("#trainFrequency").val().trim();
 
-    // Code for handling the push
-    database.ref().push({
-      name: name,
-      role: role,
-      startDate: startDate,
-      monthlyRate: monthlyRate,
+    // Temporary object for holding data from my 
+    var newTrain = {
+      trainName: trainName,
+      destination: destination,
+      firstTrain: firstTrain,
+      trainFrequency: trainFrequency,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
-    });
+    }
+    // Code for handling the push
+    database.ref().push(newTrain);
+
+    // clear out my inputs on my form after it's submitted
+    $("#trainName").val("");
+	$("#destination").val("");
+	$("#firstTrain").val("");
+	$("#trainFrequency").val("");
 
   });
 
-  // Firebase watcher .on("child_added"
+  // Firebase event that triggers when a new train is submitted from the form
   database.ref().on("child_added", function(childSnapshot) {
     // storing the snapshot.val() in a variable for convenience
     var sv = childSnapshot.val();
 
     // Console.loging the last user's data
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().role);
-    console.log(childSnapshot.val().startDate);
-    console.log(childSnapshot.val().monthlyRate);
+    console.log(childSnapshot.val().trainName);
+    console.log(childSnapshot.val().destination);
+    console.log(childSnapshot.val().firstTrain);
+    console.log(childSnapshot.val().trainFrequency);
 
 
     // Change the HTML to reflect
     
 
-    $("#employee-table").append("<tr class='well'><td class='member-name'> " +childSnapshot.val().name +
+    $("#train-table").append("<tr class='well'><td class='member-name'> " +childSnapshot.val().name +
     " </td><td class='member-email'> " + childSnapshot.val().role +
     " </td><td class='member-age'> " + childSnapshot.val().startDate +
     " </td><td class='member-comment'> " + childSnapshot.val().monthlyRate +
@@ -66,3 +74,5 @@
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
+
+});

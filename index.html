@@ -22,10 +22,10 @@
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid text-light">
-    <div class="container header justify-content-center">
-      <h1 class="display-4 justify-content-center">TRAIN &nbsp; &nbsp; SCHEDULE &nbsp; &nbsp; OPTIMIZER</h1>
-      <p class="lead subHeader  justify-content-center">Dynamically Updated Arrival and Departure Times<br>For Any Train*<br>(*<i>You Can Imagine</i>)</p>
+  <div class="jumbotron jumbotron-fluid text-light mx-auto">
+    <div class="container header text-center">
+      <h1 class="display-4 mx-auto">TRAIN &nbsp; &nbsp; SCHEDULE &nbsp; &nbsp; OPTIMIZER</h1>
+      <p class="lead subHeader mx-auto text-center">Dynamically Updated Arrival and Departure Times<br>For Any Train*<br>(*<i>You Can Imagine</i>)</p>
     </div>
   </div>
 
@@ -34,9 +34,9 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card mb-4">
-          <div class="card-header border bg-dark text-light"><strong>Current Trains</strong></div>
+          <div class="card-header border bg-dark text-light" id="trainsDisplay"><strong>Current Trains</strong></div>
           <div class="card-body bg-dark">
-            <table class="table table-sm table-hover" id='employee-table' >
+            <table class="table table-sm table-hover text-light" id="train-table">
               <thead>
                 <tr>
                   <th scope="col">Train Name</th>
@@ -68,11 +68,11 @@
       </div>
       <div class="form-group">
         <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="role" placeholder="San Francisco">
+        <input type="text" class="form-control" id="destination" placeholder="San Francisco">
       </div>
       <div class="form-group">
-        <label for="startDate">Time of First Train (military time) </label>
-        <input type="time" class="form-control" id="startTime" aria-describedby="emailHelp" placeholder="(HH:mm)">
+        <label for="firstTrain">Time of First Train (military time) </label>
+        <input type="time" class="form-control" id="firstTrain" aria-describedby="emailHelp" placeholder="(HH:mm)">
       </div>
       <div class="form-group">
         <label for="trainFrequency">Frequency (minutes)</label>

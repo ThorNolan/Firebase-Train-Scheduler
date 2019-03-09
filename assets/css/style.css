@@ -17,22 +17,25 @@ body {
     background-color: rgba(255, 166, 19, 0.92);
     font-family: 'Monoton', cursive;
     font-size: 56px;
-    height: 30vh;
-    width: 100vw;
+    width: 75%;
+    height: 20%;
     display: flex;
     align-items: center;
 }
 
 .display-4 {
-    padding: 30px;
+    display: block;
 }
 
 .subHeader {
     font-family: 'Josefin Slab', serif;
     font-size: 22px;
+    display: block;
 }
 
-#mainFormArea {
-    /* background-color:rgba(0, 0, 0, 0.82); */
+#trainDisplay {
+    width: 110%;
 }
+
+
 
