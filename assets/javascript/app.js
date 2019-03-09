@@ -54,42 +54,42 @@ $(document).ready(function() {
     console.log(childSnapshot.val().firstTrain);
     console.log(childSnapshot.val().trainFrequency);
 
-	  var trainName = childSnapshot.val().trainName;
-	  var trainDest = childSnapshot.val().destination;
-	  var firstTrain = childSnapshot.val().firstTrain;
-	  var trainFreq = childSnapshot.val().trainFrequency;
+    // store data from the childSnapshot into variables
+	var trainName = childSnapshot.val().trainName;
+	var destination = childSnapshot.val().destination;
+	var firstTrain = childSnapshot.val().firstTrain;
+	var trainFrequency = childSnapshot.val().trainFrequency;
 
+    // Following are my Moment.js time conversions and calculations
 
-	   // Declare variable
-  		var trainFreq;
-
-    // Time is to be entered on the entry form
-        var firstTime = 0;
-        var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-	    console.log(firstTimeConverted);
-
-    // this variable keeps track of the current time utilizing the Moment.js library 
+    // Gets the current time for my user
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+    
+    // First time
+	var firstTimeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
 
-    // this gets me the difference between the durrent time
-    var timeDifference = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + timeDifference);
+	// Difference between times
+	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
 
-    // Time apart (remainder)
-    var tRemainder = timeDifference % trainFrequency;
+	// Time apart (remainder)
+	var tRemainder = diffTime % trainFrequency;
+
+	// Minutes until train
+	var tMinutesTillTrain = trainFrequency - tRemainder;
+
+	// Next train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes").format("HH:mm");
+
+    // console.logs to check my time calculations
+    console.log(firstTimeConverted);
     console.log(tRemainder);
-
-    // Minute Until Train
-    var tMinutesTillTrain = trainFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
-    // Next Train
-    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
+    console.log("Current Time:" + moment(currentTime).format("HH:mm"));
+    console.log("Time Difference: " + diffTime);
+    console.log("Minutes Until Next Train: " + tMinutesTillTrain);
+	console.log("Arrival Time: " + moment(nextTrain).format("HH:mm"));
 
     // append my updated values to the #tableData section of my trainTable
-    $("#trainTable > tbody").append("<tr><td>" + childSnapshot.val().trainName + "</td><td>" + childSnapshot.val().destination + "</td><td>" + childSnapshot.val().trainFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td></tr>" + tminutesTillTrain + "</td></tr>");
+    $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + trainFrequency + "</td><td>" + nextTrain + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 
     // Handle possible errors
   }, function(errorObject) {
